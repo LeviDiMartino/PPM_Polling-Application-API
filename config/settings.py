@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-w0=@ben9mb^0$!6*i2$c*4o6v(ad&49d-izx@l&%)n1)478+($
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -128,3 +128,4 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',  # Per l'interfaccia web del browser
     ]
 }
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

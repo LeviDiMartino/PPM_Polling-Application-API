@@ -1,0 +1,900 @@
+[
+{
+    "model": "polls.poll",
+    "pk": 1,
+    "fields": {
+        "question": "Che linguaggio di programmazione usi più spesso?",
+        "created_by": 1,
+        "created_at": "2026-07-04T17:36:35.871Z"
+    }
+},
+{
+    "model": "polls.poll",
+    "pk": 2,
+    "fields": {
+        "question": "Che mezzo di trasporto usi per andare a lavoro/università?",
+        "created_by": 1,
+        "created_at": "2026-07-04T17:46:25.761Z"
+    }
+},
+{
+    "model": "polls.poll",
+    "pk": 3,
+    "fields": {
+        "question": "Quale strumento di Intelligenza Artificiale utilizzi maggiormente per supportare il tuo lavoro o studio?",
+        "created_by": 1,
+        "created_at": "2026-07-04T17:48:12.389Z"
+    }
+},
+{
+    "model": "polls.poll",
+    "pk": 4,
+    "fields": {
+        "question": "Quale è il tuo cibo preferito?",
+        "created_by": 1,
+        "created_at": "2026-07-04T17:55:44.997Z"
+    }
+},
+{
+    "model": "polls.poll",
+    "pk": 5,
+    "fields": {
+        "question": "Quale Paese europeo (o gruppo di Paesi) vorresti visitare?",
+        "created_by": 1,
+        "created_at": "2026-07-04T18:07:19.782Z"
+    }
+},
+{
+    "model": "polls.poll",
+    "pk": 6,
+    "fields": {
+        "question": "Se avessi un' azienda, che servizio di cloud computing useresti?",
+        "created_by": 1,
+        "created_at": "2026-07-04T18:11:59.751Z"
+    }
+},
+{
+    "model": "polls.poll",
+    "pk": 7,
+    "fields": {
+        "question": "Qual è la tua piattaforma di streaming preferita?",
+        "created_by": 1,
+        "created_at": "2026-07-04T18:15:42.861Z"
+    }
+},
+{
+    "model": "polls.poll",
+    "pk": 8,
+    "fields": {
+        "question": "Quale piattaforma Social usi di più?",
+        "created_by": 1,
+        "created_at": "2026-07-04T18:20:29.551Z"
+    }
+},
+{
+    "model": "polls.poll",
+    "pk": 9,
+    "fields": {
+        "question": "Secondo te, qual è la facoltà universitaria meglio retribuita?",
+        "created_by": 1,
+        "created_at": "2026-07-04T18:28:46.771Z"
+    }
+},
+{
+    "model": "polls.poll",
+    "pk": 10,
+    "fields": {
+        "question": "Che tipologia di musica preferisci ascoltare?",
+        "created_by": 1,
+        "created_at": "2026-07-04T18:53:35.495Z"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 1,
+    "fields": {
+        "poll": 1,
+        "choice_text": "Python"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 2,
+    "fields": {
+        "poll": 1,
+        "choice_text": "Java"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 3,
+    "fields": {
+        "poll": 1,
+        "choice_text": "C"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 4,
+    "fields": {
+        "poll": 1,
+        "choice_text": "JavaScript"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 5,
+    "fields": {
+        "poll": 1,
+        "choice_text": "C#"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 6,
+    "fields": {
+        "poll": 1,
+        "choice_text": "C++"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 7,
+    "fields": {
+        "poll": 1,
+        "choice_text": "PHP"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 8,
+    "fields": {
+        "poll": 1,
+        "choice_text": "Rust"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 9,
+    "fields": {
+        "poll": 1,
+        "choice_text": "Go"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 10,
+    "fields": {
+        "poll": 2,
+        "choice_text": "Macchina"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 11,
+    "fields": {
+        "poll": 2,
+        "choice_text": "Autobus"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 12,
+    "fields": {
+        "poll": 2,
+        "choice_text": "Treno"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 13,
+    "fields": {
+        "poll": 2,
+        "choice_text": "Piedi"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 14,
+    "fields": {
+        "poll": 2,
+        "choice_text": "Bicicletta"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 15,
+    "fields": {
+        "poll": 2,
+        "choice_text": "Monopattino"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 16,
+    "fields": {
+        "poll": 3,
+        "choice_text": "ChatGPT"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 17,
+    "fields": {
+        "poll": 3,
+        "choice_text": "Claude"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 18,
+    "fields": {
+        "poll": 3,
+        "choice_text": "Gemini"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 19,
+    "fields": {
+        "poll": 3,
+        "choice_text": "Copilot"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 20,
+    "fields": {
+        "poll": 3,
+        "choice_text": "DeepSeek"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 21,
+    "fields": {
+        "poll": 3,
+        "choice_text": "Perplexity"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 22,
+    "fields": {
+        "poll": 3,
+        "choice_text": "Grok"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 23,
+    "fields": {
+        "poll": 4,
+        "choice_text": "Pizza"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 24,
+    "fields": {
+        "poll": 4,
+        "choice_text": "Pasta"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 25,
+    "fields": {
+        "poll": 4,
+        "choice_text": "Sushi"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 26,
+    "fields": {
+        "poll": 4,
+        "choice_text": "Cinese"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 27,
+    "fields": {
+        "poll": 4,
+        "choice_text": "Salumi"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 28,
+    "fields": {
+        "poll": 4,
+        "choice_text": "Formaggi"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 29,
+    "fields": {
+        "poll": 4,
+        "choice_text": "Dolci"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 30,
+    "fields": {
+        "poll": 4,
+        "choice_text": "Barbecue"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 31,
+    "fields": {
+        "poll": 4,
+        "choice_text": "Ramen"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 32,
+    "fields": {
+        "poll": 4,
+        "choice_text": "Verdure"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 33,
+    "fields": {
+        "poll": 5,
+        "choice_text": "Italia"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 34,
+    "fields": {
+        "poll": 5,
+        "choice_text": "Francia"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 35,
+    "fields": {
+        "poll": 5,
+        "choice_text": "Germania"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 36,
+    "fields": {
+        "poll": 5,
+        "choice_text": "Regno Unito"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 37,
+    "fields": {
+        "poll": 5,
+        "choice_text": "Irlanda"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 38,
+    "fields": {
+        "poll": 5,
+        "choice_text": "Portogallo"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 39,
+    "fields": {
+        "poll": 5,
+        "choice_text": "Grecia"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 40,
+    "fields": {
+        "poll": 5,
+        "choice_text": "Balcani"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 41,
+    "fields": {
+        "poll": 5,
+        "choice_text": "Scandinavia"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 42,
+    "fields": {
+        "poll": 5,
+        "choice_text": "Austria"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 43,
+    "fields": {
+        "poll": 5,
+        "choice_text": "Polonia"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 44,
+    "fields": {
+        "poll": 5,
+        "choice_text": "Ucrania"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 45,
+    "fields": {
+        "poll": 5,
+        "choice_text": "Bielorussia"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 46,
+    "fields": {
+        "poll": 5,
+        "choice_text": "Paesi Baltici"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 47,
+    "fields": {
+        "poll": 5,
+        "choice_text": "Spagna"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 48,
+    "fields": {
+        "poll": 6,
+        "choice_text": "Oracle Cloud Infrastructure"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 49,
+    "fields": {
+        "poll": 6,
+        "choice_text": "Microsoft Azure"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 50,
+    "fields": {
+        "poll": 6,
+        "choice_text": "Google Cloud"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 51,
+    "fields": {
+        "poll": 6,
+        "choice_text": "Amazon Web Services (AWS)"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 52,
+    "fields": {
+        "poll": 6,
+        "choice_text": "DigitalOcean"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 53,
+    "fields": {
+        "poll": 6,
+        "choice_text": "Linode"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 54,
+    "fields": {
+        "poll": 6,
+        "choice_text": "Vultr"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 55,
+    "fields": {
+        "poll": 7,
+        "choice_text": "Netflix"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 56,
+    "fields": {
+        "poll": 7,
+        "choice_text": "Prime Video"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 57,
+    "fields": {
+        "poll": 7,
+        "choice_text": "Disney+"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 58,
+    "fields": {
+        "poll": 7,
+        "choice_text": "Paramount"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 59,
+    "fields": {
+        "poll": 7,
+        "choice_text": "Apple TV+"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 60,
+    "fields": {
+        "poll": 7,
+        "choice_text": "Discovery+"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 61,
+    "fields": {
+        "poll": 7,
+        "choice_text": "NOW"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 62,
+    "fields": {
+        "poll": 7,
+        "choice_text": "DAZN"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 63,
+    "fields": {
+        "poll": 8,
+        "choice_text": "Facebook"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 64,
+    "fields": {
+        "poll": 8,
+        "choice_text": "Youtube"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 65,
+    "fields": {
+        "poll": 8,
+        "choice_text": "Instagram"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 66,
+    "fields": {
+        "poll": 8,
+        "choice_text": "TikTok"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 67,
+    "fields": {
+        "poll": 8,
+        "choice_text": "WhatApp"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 68,
+    "fields": {
+        "poll": 8,
+        "choice_text": "Reddit"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 69,
+    "fields": {
+        "poll": 8,
+        "choice_text": "Discord"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 70,
+    "fields": {
+        "poll": 8,
+        "choice_text": "X"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 71,
+    "fields": {
+        "poll": 8,
+        "choice_text": "Telegram"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 72,
+    "fields": {
+        "poll": 8,
+        "choice_text": "LinkedIn"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 73,
+    "fields": {
+        "poll": 8,
+        "choice_text": "Pinterest"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 74,
+    "fields": {
+        "poll": 8,
+        "choice_text": "Snapchat"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 75,
+    "fields": {
+        "poll": 9,
+        "choice_text": "Medicina"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 76,
+    "fields": {
+        "poll": 9,
+        "choice_text": "Ingegneria informatica"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 77,
+    "fields": {
+        "poll": 9,
+        "choice_text": "Ingegneria Gestionale"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 78,
+    "fields": {
+        "poll": 9,
+        "choice_text": "Economia e Finanza"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 79,
+    "fields": {
+        "poll": 9,
+        "choice_text": "Giurisprudenza"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 80,
+    "fields": {
+        "poll": 9,
+        "choice_text": "Informatica"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 81,
+    "fields": {
+        "poll": 9,
+        "choice_text": "Ingegneria meccanica"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 82,
+    "fields": {
+        "poll": 9,
+        "choice_text": "Architettura"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 83,
+    "fields": {
+        "poll": 9,
+        "choice_text": "Biotecnologie"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 84,
+    "fields": {
+        "poll": 9,
+        "choice_text": "Data Science / Statistica"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 85,
+    "fields": {
+        "poll": 9,
+        "choice_text": "Ingegneria aerospaziale"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 86,
+    "fields": {
+        "poll": 9,
+        "choice_text": "Fisica"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 87,
+    "fields": {
+        "poll": 9,
+        "choice_text": "Matematica"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 88,
+    "fields": {
+        "poll": 9,
+        "choice_text": "Psicologia"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 89,
+    "fields": {
+        "poll": 9,
+        "choice_text": "Lettere"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 90,
+    "fields": {
+        "poll": 9,
+        "choice_text": "Scienze della comunicazione"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 91,
+    "fields": {
+        "poll": 10,
+        "choice_text": "Rock"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 92,
+    "fields": {
+        "poll": 10,
+        "choice_text": "Pop"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 93,
+    "fields": {
+        "poll": 10,
+        "choice_text": "Rap"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 94,
+    "fields": {
+        "poll": 10,
+        "choice_text": "Metal"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 95,
+    "fields": {
+        "poll": 10,
+        "choice_text": "Elettronica"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 96,
+    "fields": {
+        "poll": 10,
+        "choice_text": "Musica Latina"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 97,
+    "fields": {
+        "poll": 10,
+        "choice_text": "Indie"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 98,
+    "fields": {
+        "poll": 10,
+        "choice_text": "Trap"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 99,
+    "fields": {
+        "poll": 10,
+        "choice_text": "Classica"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 100,
+    "fields": {
+        "poll": 10,
+        "choice_text": "Lo-fi"
+    }
+},
+{
+    "model": "polls.choice",
+    "pk": 101,
+    "fields": {
+        "poll": 10,
+        "choice_text": "Jazz"
+    }
+}
+]
