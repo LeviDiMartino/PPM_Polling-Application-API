@@ -3,6 +3,20 @@ from rest_framework.response import Response
 from rest_framework.exceptions import ValidationError
 from .models import Poll, Choice, Vote
 from .serializers import PollSerializer, VoteSerializer
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
+
+class IsOwnerOrReadOnly(permissions.BasePermission):
+    """
+    Permesso personalizzato: tutti possono leggere, 
+    ma solo chi ha creato il sondaggio (created_by) può modificarlo/cancellarlo.
+    """
+    def has_object_permission(self, request, view, obj):
+        # Se la richiesta è in sola lettura (GET, HEAD, OPTIONS), lascialo passare
+        if request.method in permissions.SAFE_METHODS:
+            return True
+        
+        # Altrimenti (PUT, DELETE), controlla se l'utente coincide con 'created_by'
+        return obj.created_by == request.user
 
 # 1. Vista per Elencare i sondaggi (GET) e Creare un sondaggio (POST)
 class PollListCreateView(generics.ListCreateAPIView):  # <-- Corretto qui
@@ -17,12 +31,12 @@ class PollListCreateView(generics.ListCreateAPIView):  # <-- Corretto qui
 class PollDetailView(generics.RetrieveUpdateDestroyAPIView):  # <-- Corretto qui
     queryset = Poll.objects.all()
     serializer_class = PollSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
 
 # 3. Vista per Registrare un Voto (POST)
 class VoteCreateView(generics.CreateAPIView):
     serializer_class = VoteSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
     def get_serializer(self, *args, **kwargs):
         serializer = super().get_serializer(*args, **kwargs)
