@@ -1,9 +1,9 @@
 # PPM_Polling-Application-API
 
-**Studente:** <Levi Di Martino Serafim>
-**Matricola:** 7083297
-**Progetto:** REST API
-**Framework:** Django / Django REST Framework
+* **Studente:** <Levi Di Martino Serafim>
+* **Matricola:** 7083297
+* **Progetto:** REST API
+* **Framework:** Django / Django REST Framework
 
 ---
 
