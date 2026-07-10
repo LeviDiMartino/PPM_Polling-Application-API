@@ -91,6 +91,7 @@ http POST [http://levidimartino.pythonanywhere.com/api/polls/1/vote/](http://lev
 
 ### Fase 4: Test delle Restrizioni e Azioni Vietate (Security Check)
 Il sistema è progettato per respingere tempestivamente i tentativi di violazione delle regole di business.
+
 ```bash
 # 6. TEST DOPPIO VOTO (Restrizione unicità)
 # Esegui nuovamente lo stesso identico comando di voto precedente:
