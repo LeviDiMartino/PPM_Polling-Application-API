@@ -61,7 +61,7 @@ http GET [http://levidimartino.pythonanywhere.com/api/polls/](http://levidimarti
 
 # 2. Visualizza l'endpoint specifico dei risultati per il sondaggio ID 1
 http GET [http://levidimartino.pythonanywhere.com/api/polls/1/results/](http://levidimartino.pythonanywhere.com/api/polls/1/results/)
-
+```
 Fase 2: Autenticazione (Ottenimento Token JWT)
 Per eseguire operazioni di scrittura, l'utente deve scambiare le proprie credenziali con un token di accesso.
 
@@ -69,7 +69,7 @@ Per eseguire operazioni di scrittura, l'utente deve scambiare le proprie credenz
 http POST [http://levidimartino.pythonanywhere.com/api/token/](http://levidimartino.pythonanywhere.com/api/token/) username="user_demo" password="user12345"
 
 Nota per il testing: Copia il valore della stringa access ricevuta nel JSON di risposta. Sostituisci questo valore nei comandi successivi al posto della dicitura <INSERISCI_TOKEN_ACCESS>.
-
+```
 Fase 3: Operazioni Protette (Autenticato)
 Utilizzando il token JWT all'interno dell'header Authorization, l'utente può ora interagire attivamente con l'applicazione.
 
@@ -83,7 +83,7 @@ http POST [http://levidimartino.pythonanywhere.com/api/polls/](http://levidimart
 http POST [http://levidimartino.pythonanywhere.com/api/polls/1/vote/](http://levidimartino.pythonanywhere.com/api/polls/1/vote/) \
   "Authorization: Bearer <INSERISCI_TOKEN_ACCESS>" \
   choice=1
-
+```
 Fase 4: Test delle Restrizioni e Azioni Vietate (Security Check)
 Il sistema è progettato per respingere tempestivamente i tentativi di violazione delle regole di business.
 
@@ -99,7 +99,7 @@ http POST [http://levidimartino.pythonanywhere.com/api/polls/1/vote/](http://lev
 http DELETE [http://levidimartino.pythonanywhere.com/api/polls/1/](http://levidimartino.pythonanywhere.com/api/polls/1/) \
   "Authorization: Bearer <TOKEN_DI_USER_DEMO_2>"
 # Il sistema blocca la richiesta rispondendo con: HTTP 403 Forbidden ("You do not have permission to perform this action.")
-
+```
 6. Installazione e Avvio Locale (Opzionale)
 Qualora si preferisse eseguire ed ispezionare il server in un ambiente di sviluppo locale:
 
