@@ -1,8 +1,8 @@
 from rest_framework import generics, permissions, status
 from rest_framework.response import Response
-from rest_framework.exceptions import ValidationError
+from rest_framework.exceptions import ValidationError, PermissionDenied
 from .models import Poll, Choice, Vote
-from .serializers import PollSerializer, VoteSerializer
+from .serializers import PollSerializer, VoteSerializer, ChoiceSerializer
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 
 class IsOwnerOrReadOnly(permissions.BasePermission):
@@ -94,3 +94,32 @@ class PollResultsView(generics.RetrieveAPIView):
             "total_choices": len(results_data),
             "results": results_data
         }, status=status.HTTP_200_OK)
+    
+# Vista per CREARE una scelta
+class ChoiceCreateView(generics.CreateAPIView):
+    queryset = Choice.objects.all()
+    serializer_class = ChoiceSerializer
+    permission_classes = [permissions.IsAuthenticated] # Richiede il token!
+
+    def perform_create(self, serializer):
+        poll = serializer.validated_data['poll']
+        
+        # Sicurezza: l'utente loggato è il creatore del sondaggio o fa parte dello staff (admin)?
+        # (Nota: se nel tuo modello Poll l'autore si chiama in un altro modo, es. 'author' o 'user', cambialo qui)
+        if poll.creator != self.request.user and not self.request.user.is_staff:
+            raise PermissionDenied("Accesso negato: Solo il creatore o un admin possono aggiungere scelte a questo sondaggio.")
+            
+        serializer.save()
+
+# Vista per ELIMINARE una scelta
+class ChoiceDeleteView(generics.DestroyAPIView):
+    queryset = Choice.objects.all()
+    serializer_class = ChoiceSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def perform_destroy(self, instance):
+        # Qui 'instance' è la singola scelta che stiamo per eliminare
+        if instance.poll.creator != self.request.user and not self.request.user.is_staff:
+            raise PermissionDenied("Accesso negato: Solo il creatore o un admin possono eliminare questa scelta.")
+            
+        instance.delete()

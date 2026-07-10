@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Poll, Choice, Vote
+from rest_framework.exceptions import ValidationError
 
 # 1. Serializzatore per i Voti
 class VoteSerializer(serializers.ModelSerializer):
@@ -43,6 +44,17 @@ class ChoiceSerializer(serializers.ModelSerializer):
         
         # Restituiamo il numero arrotondato a 1 decimale con il simbolo %
         return f"{round(percentage, 1)}%"
+    
+    def validate(self, data):
+        poll = data['poll']
+        
+        numero_scelte_attuali = Choice.objects.filter(poll=poll).count()
+        
+        # Iimite massimo scelte di un sondaggio
+        if numero_scelte_attuali >= 20:
+            raise ValidationError("Questo sondaggio ha già raggiunto il limite massimo di 20 opzioni.")
+            
+        return data
 
 
 # 3. Serializzatore per il Sondaggio Completo
