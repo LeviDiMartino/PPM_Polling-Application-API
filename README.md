@@ -59,7 +59,7 @@ Inserire ordinatamente i seguenti comandi sul terminale e premere invio. Altrime
 
 ```bash
 # 1. Recupera la lista di tutti i sondaggi presenti
-http GET http://levidimartino.pythonanywhere.com/api/polls/   #http://levidimartino.pythonanywhere.com/api/polls/
+http --unsorted GET http://levidimartino.pythonanywhere.com/api/polls/   #http://levidimartino.pythonanywhere.com/api/polls/
 
 # 2. Visualizza l'endpoint specifico dei risultati per il sondaggio ID 1
 http GET http://levidimartino.pythonanywhere.com/api/polls/1/results   #http://levidimartino.pythonanywhere.com/api/polls/1/results/
