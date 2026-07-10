@@ -70,7 +70,7 @@ Per eseguire operazioni di scrittura, l'utente deve scambiare le proprie credenz
 
 ```bash
 # 3. Esegui il login con l'utente standard (provare se si vuole a inserire prima credenziali errate da quelle precedentemente specificate)
-http POST http://levidimartino.pythonanywhere.com/api/token/  username="AuthenticatedUser1" password="Polls1"  #http://levidimartino.pythonanywhere.com/api/token/ username="user_demo" password="user12345")
+http -j POST http://levidimartino.pythonanywhere.com/api/token/  username="AuthenticatedUser1" password="Polls1"  #http://levidimartino.pythonanywhere.com/api/token/ username="user_demo" password="user12345")
 
 Nota per il testing: Copia il valore della stringa access ricevuta nel JSON di risposta. Sostituisci questo valore nei comandi successivi al posto della dicitura <INSERISCI_TOKEN_ACCESS>.
 ```
