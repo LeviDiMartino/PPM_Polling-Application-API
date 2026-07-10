@@ -16,12 +16,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from rest_framework.authtoken.views import obtain_auth_token
-
+# 1. Importa le viste di SimpleJWT per la gestione dei token
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('polls.urls')),
-    path('api/token/', obtain_auth_token, name='api_token_auth'), 
+    
+    # 2. Sostituiamo il vecchio 'obtain_auth_token' con questo per il Login JWT
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    
+    # 3. Aggiungiamo l'endpoint per rinnovare l'access token quando scade
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    
+    # Questo lo manteniamo! Serve per il login/logout del browser nell'interfaccia DRF
     path('api-auth/', include('rest_framework.urls')),
 ]
+

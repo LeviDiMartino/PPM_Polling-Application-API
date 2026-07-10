@@ -64,3 +64,33 @@ class VoteCreateView(generics.CreateAPIView):
             
         # Salviamo il voto associando l'utente e il sondaggio ricavato dall'URL
         serializer.save(user=self.request.user, poll=associated_poll)
+
+# 4. Vista per visualizzare i Risultati del sondaggio (GET - Pubblica)
+class PollResultsView(generics.RetrieveAPIView):
+    queryset = Poll.objects.all()
+    permission_classes = [permissions.AllowAny]  # Chiunque può vedere i risultati
+
+    def retrieve(self, request, *args, **kwargs):
+        poll = self.get_object()
+        
+        # Recuperiamo tutte le opzioni collegate a questo sondaggio
+        # Nota: se nel tuo modello Choice hai usato un related_name='choices', usa poll.choices.all()
+        # altrimenti il default di Django è poll.choice_set.all()
+        choices = poll.choices.all() if hasattr(poll, 'choices') else poll.choice_set.all()
+        
+        results_data = []
+        for choice in choices:
+            # Contiamo quanti oggetti 'Vote' sono associati a questa specifica opzione
+            vote_count = Vote.objects.filter(choice=choice).count()
+            results_data.append({
+                "choice_id": choice.id,
+                "choice_text": choice.choice_text,
+                "votes": vote_count
+            })
+            
+        return Response({
+            "poll_id": poll.id,
+            "question": poll.question,
+            "total_choices": len(results_data),
+            "results": results_data
+        }, status=status.HTTP_200_OK)

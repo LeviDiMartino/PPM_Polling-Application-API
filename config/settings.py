@@ -119,13 +119,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
-# Dice a Django di usare il nostro CustomUser per l'autenticazione
+
 AUTH_USER_MODEL = 'users.CustomUser'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',    # Per i client veri (Postman, Frontend, HTTPie)
-        'rest_framework.authentication.SessionAuthentication',  # Per l'interfaccia web del browser
+        # Sostituiamo il token standard con il token JWT per i client esterni (Postman, HTTPie, ecc.)
+        'rest_framework_simplejwt.authentication.JWTAuthentication',  
+        'rest_framework.authentication.SessionAuthentication',  
     ]
 }
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
