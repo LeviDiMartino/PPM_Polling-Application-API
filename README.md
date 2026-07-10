@@ -80,13 +80,13 @@ Utilizzando il token JWT all'interno dell'header Authorization, l'utente può or
 
 ```bash
 # 4. Creazione di un nuovo sondaggio personale
-http POST http://levidimartino.pythonanywhere.com/api/polls/   #http://levidimartino.pythonanywhere.com/api/polls/ \
+http POST http://levidimartino.pythonanywhere.com/api/polls/ \   #http://levidimartino.pythonanywhere.com/api/polls/ 
   "Authorization: Bearer <INSERISCI_TOKEN_ACCESS>" \
   question="Quale framework preferisci per lo sviluppo delle REST API?"
 
 # 5. Invio di un voto per una scelta specifica (es. opzione ID 1 sul sondaggio ID 1, altrimenti cambia ID tra quelli possibili)
 
-http POST http://levidimartino.pythonanywhere.com/api/polls/1/vote/    #http://levidimartino.pythonanywhere.com/api/polls/1/vote/ \
+http POST http://levidimartino.pythonanywhere.com/api/polls/1/vote/ \  #http://levidimartino.pythonanywhere.com/api/polls/1/vote/ 
   "Authorization: Bearer <INSERISCI_TOKEN_ACCESS>" \
   choice=1
 ```
@@ -97,14 +97,14 @@ Il sistema è progettato per respingere tempestivamente i tentativi di violazion
 ```bash
 # 6. TEST DOPPIO VOTO (Restrizione unicità)
 # Esegui nuovamente lo stesso identico comando di voto precedente:
-http POST http://levidimartino.pythonanywhere.com/api/polls/1/vote/    (http://levidimartino.pythonanywhere.com/api/polls/1/vote/) \
+http POST http://levidimartino.pythonanywhere.com/api/polls/1/vote/ \ # http://levidimartino.pythonanywhere.com/api/polls/1/vote/
   "Authorization: Bearer <INSERISCI_TOKEN_ACCESS>" \
   choice=1
 # Il sistema intercetta la violazione e risponde con: HTTP 400 Bad Request ("You have already voted in this poll.")
 
 # 7. TEST PERMESSI DI OGGETTO (Restrizione modifica/cancellazione)
 # Richiedi un token per l'utente 'user_demo2' e prova a cancellare il sondaggio ID 1 (creato da un altro utente):
-http DELETE http://levidimartino.pythonanywhere.com/api/polls/1/     (http://levidimartino.pythonanywhere.com/api/polls/1/) \
+http DELETE http://levidimartino.pythonanywhere.com/api/polls/1/ \   #http://levidimartino.pythonanywhere.com/api/polls/1/
   "Authorization: Bearer <TOKEN_DI_USER_DEMO_2>"
 # Il sistema blocca la richiesta rispondendo con: HTTP 403 Forbidden ("You do not have permission to perform this action.")
 ```
