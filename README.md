@@ -84,7 +84,9 @@ http POST http://levidimartino.pythonanywhere.com/api/polls/ \   #http://levidim
   "Authorization: Bearer <INSERISCI_TOKEN_ACCESS>" \
   question="Quale framework preferisci per lo sviluppo delle REST API?"
 
-# 5. Invio di un voto per una scelta specifica (es. opzione ID 1 sul sondaggio ID 1, altrimenti cambia ID tra quelli possibili)
+# 5. Invio di un voto per una scelta specifica
+Scegliamo un sondaggio in base al suo ID (da 1-10 ). Poi facciamo la nostra scelta selezionando l'ID corrispondente della risposta.
+("polls/ID_del_sondaggio_scelto/vote/" e poi "choice: ID_risposta_scelta")
 
 http POST http://levidimartino.pythonanywhere.com/api/polls/1/vote/ \  #http://levidimartino.pythonanywhere.com/api/polls/1/vote/ 
   "Authorization: Bearer <INSERISCI_TOKEN_ACCESS>" \
