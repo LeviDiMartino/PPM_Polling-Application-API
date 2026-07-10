@@ -28,9 +28,9 @@ Il database di produzione include già dati realistici di test. Per le verifiche
 
 | Ruolo | Username | Password | Permessi operativi |
 | :--- | :--- | :--- | :--- |
-| **Utente Standard 1** | `user_demo` | `user12345` | Gestisce solo i propri dati, vota |
-| **Utente Standard 2** | `user_demo2` | `user12345` | Utilizzato per testare le azioni vietate |
-| **Amministratore** | `admin_demo` | `admin12345` | Controllo e moderazione globale totale |
+| **Utente Standard 1** | `AuthenticatedUser1` | `Polls1` | Gestisce solo i propri dati, vota |
+| **Utente Standard 2** | `AuthenticatedUser2` | `Polls2` | Utilizzato per testare le azioni vietate |
+| **Amministratore** | `admin` | `admin1234` | Controllo e moderazione globale totale |
 
 ---
 
