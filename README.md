@@ -65,6 +65,7 @@ http GET [http://levidimartino.pythonanywhere.com/api/polls/1/results/](http://l
 Fase 2: Autenticazione (Ottenimento Token JWT)
 Per eseguire operazioni di scrittura, l'utente deve scambiare le proprie credenziali con un token di accesso.
 
+```bash
 # 3. Esegui il login con l'utente standard
 http POST [http://levidimartino.pythonanywhere.com/api/token/](http://levidimartino.pythonanywhere.com/api/token/) username="user_demo" password="user12345"
 
@@ -73,6 +74,7 @@ Nota per il testing: Copia il valore della stringa access ricevuta nel JSON di r
 Fase 3: Operazioni Protette (Autenticato)
 Utilizzando il token JWT all'interno dell'header Authorization, l'utente può ora interagire attivamente con l'applicazione.
 
+```bash
 # 4. Creazione di un nuovo sondaggio personale
 http POST [http://levidimartino.pythonanywhere.com/api/polls/](http://levidimartino.pythonanywhere.com/api/polls/) \
   "Authorization: Bearer <INSERISCI_TOKEN_ACCESS>" \
@@ -86,7 +88,7 @@ http POST [http://levidimartino.pythonanywhere.com/api/polls/1/vote/](http://lev
 ```
 Fase 4: Test delle Restrizioni e Azioni Vietate (Security Check)
 Il sistema è progettato per respingere tempestivamente i tentativi di violazione delle regole di business.
-
+```bash
 # 6. TEST DOPPIO VOTO (Restrizione unicità)
 # Esegui nuovamente lo stesso identico comando di voto precedente:
 http POST [http://levidimartino.pythonanywhere.com/api/polls/1/vote/](http://levidimartino.pythonanywhere.com/api/polls/1/vote/) \
@@ -102,7 +104,7 @@ http DELETE [http://levidimartino.pythonanywhere.com/api/polls/1/](http://levidi
 ```
 6. Installazione e Avvio Locale (Opzionale)
 Qualora si preferisse eseguire ed ispezionare il server in un ambiente di sviluppo locale:
-
+```bash
 # Clonazione ed accesso alla cartella
 git clone <URL_DELLA_REPOSITOR_GITHUB>
 cd PPM_Polling-Application-API
@@ -117,3 +119,4 @@ python manage.py migrate
 python manage.py runserver
 
 Il server locale sarà raggiungibile all'indirizzo standard http://127.0.0.1:8000/.
+```
