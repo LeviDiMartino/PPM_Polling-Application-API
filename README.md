@@ -69,8 +69,8 @@ http GET http://levidimartino.pythonanywhere.com/api/polls/1/results   (http://l
 Per eseguire operazioni di scrittura, l'utente deve scambiare le proprie credenziali con un token di accesso.
 
 ```bash
-# 3. Esegui il login con l'utente standard
-http POST http://levidimartino.pythonanywhere.com/api/token/    (http://levidimartino.pythonanywhere.com/api/token/) username="user_demo" password="user12345"
+# 3. Esegui il login con l'utente standard (provare se si vuole a inserire prima credenziali errate da quelle precedentemente specificate)
+http POST http://levidimartino.pythonanywhere.com/api/token/  username="AuthenticatedUser1" password="Polls1"  (http://levidimartino.pythonanywhere.com/api/token/ username="user_demo" password="user12345")
 
 Nota per il testing: Copia il valore della stringa access ricevuta nel JSON di risposta. Sostituisci questo valore nei comandi successivi al posto della dicitura <INSERISCI_TOKEN_ACCESS>.
 ```
