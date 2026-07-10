@@ -4,6 +4,7 @@ from rest_framework.exceptions import ValidationError, PermissionDenied
 from .models import Poll, Choice, Vote
 from .serializers import PollSerializer, VoteSerializer, ChoiceSerializer
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
+from django.shortcuts import get_object_or_404
 
 class IsOwnerOrReadOnly(permissions.BasePermission):
     """
@@ -40,10 +41,9 @@ class VoteCreateView(generics.CreateAPIView):
 
     def get_serializer(self, *args, **kwargs):
         serializer = super().get_serializer(*args, **kwargs)
-        # 1. Recuperiamo l'ID del sondaggio direttamente dall'URL
         poll_id = self.kwargs.get('pk')
         
-        # 2. Filtriamo il menu a tendina della scelta per mostrare SOLO le opzioni di QUESTO sondaggio
+        # Filtra il menu a tendina nel browser mostrando solo le scelte di questo sondaggio
         if 'choice' in serializer.fields:
             serializer.fields['choice'].queryset = Choice.objects.filter(poll_id=poll_id)
         return serializer
@@ -51,18 +51,20 @@ class VoteCreateView(generics.CreateAPIView):
     def perform_create(self, serializer):
         poll_id = self.kwargs.get('pk')
         
-        # Verifichiamo che il sondaggio esista davvero nel database
-        try:
-            associated_poll = Poll.objects.get(id=poll_id)
-        except Poll.DoesNotExist:
-            raise ValidationError("Il sondaggio specificato non esiste.")
+        # Recupera il sondaggio in modo sicuro (solleva 404 se non esiste)
+        associated_poll = get_object_or_404(Poll, id=poll_id)
         
-        # Controllo di sicurezza anti-voto doppio
+        # 1. Controllo di sicurezza anti-voto doppio
         already_voted = Vote.objects.filter(user=self.request.user, poll=associated_poll).exists()
         if already_voted:
             raise ValidationError("Hai già espresso il tuo voto per questo sondaggio!")
             
-        # Salviamo il voto associando l'utente e il sondaggio ricavato dall'URL
+        # 2. Controllo di sicurezza anti-intrusione (per richieste da terminale)
+        choice = serializer.validated_data['choice']
+        if choice.poll != associated_poll:
+            raise ValidationError("Questa opzione di risposta non appartiene al sondaggio selezionato.")
+            
+        # Salviamo associando l'utente e il sondaggio
         serializer.save(user=self.request.user, poll=associated_poll)
 
 # 4. Vista per visualizzare i Risultati del sondaggio (GET - Pubblica)
