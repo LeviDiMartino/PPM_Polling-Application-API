@@ -55,14 +55,14 @@ Di seguito viene riportato il flusso logico sequenziale consigliato per testare 
 ### Fase 1: Richieste Pubbliche (Anonimo)
 Chiunque può consultare l'elenco dei sondaggi attivi e i relativi risultati.
 
-Inserire ordinatamente i seguenti comandi sul terminale e premere invio. Altrimenti da browser copiare e incollare gli indirizzi web riportati a lato (senza le parentesi tonde).
+Inserire ordinatamente i seguenti comandi sul terminale e premere invio. Altrimenti da browser copiare e incollare gli indirizzi web riportati a lato.
 
 ```bash
 # 1. Recupera la lista di tutti i sondaggi presenti
-http GET http://levidimartino.pythonanywhere.com/api/polls/   (http://levidimartino.pythonanywhere.com/api/polls/)
+http GET http://levidimartino.pythonanywhere.com/api/polls/   #http://levidimartino.pythonanywhere.com/api/polls/
 
 # 2. Visualizza l'endpoint specifico dei risultati per il sondaggio ID 1
-http GET http://levidimartino.pythonanywhere.com/api/polls/1/results   (http://levidimartino.pythonanywhere.com/api/polls/1/results/)
+http GET http://levidimartino.pythonanywhere.com/api/polls/1/results   #http://levidimartino.pythonanywhere.com/api/polls/1/results/
 ```
 
 ### Fase 2: Autenticazione (Ottenimento Token JWT)
@@ -70,7 +70,7 @@ Per eseguire operazioni di scrittura, l'utente deve scambiare le proprie credenz
 
 ```bash
 # 3. Esegui il login con l'utente standard (provare se si vuole a inserire prima credenziali errate da quelle precedentemente specificate)
-http POST http://levidimartino.pythonanywhere.com/api/token/  username="AuthenticatedUser1" password="Polls1"  (http://levidimartino.pythonanywhere.com/api/token/ username="user_demo" password="user12345")
+http POST http://levidimartino.pythonanywhere.com/api/token/  username="AuthenticatedUser1" password="Polls1"  #http://levidimartino.pythonanywhere.com/api/token/ username="user_demo" password="user12345")
 
 Nota per il testing: Copia il valore della stringa access ricevuta nel JSON di risposta. Sostituisci questo valore nei comandi successivi al posto della dicitura <INSERISCI_TOKEN_ACCESS>.
 ```
@@ -80,13 +80,13 @@ Utilizzando il token JWT all'interno dell'header Authorization, l'utente può or
 
 ```bash
 # 4. Creazione di un nuovo sondaggio personale
-http POST http://levidimartino.pythonanywhere.com/api/polls/   (http://levidimartino.pythonanywhere.com/api/polls/) \
+http POST http://levidimartino.pythonanywhere.com/api/polls/   #http://levidimartino.pythonanywhere.com/api/polls/ \
   "Authorization: Bearer <INSERISCI_TOKEN_ACCESS>" \
   question="Quale framework preferisci per lo sviluppo delle REST API?"
 
 # 5. Invio di un voto per una scelta specifica (es. opzione ID 1 sul sondaggio ID 1, altrimenti cambia ID tra quelli possibili)
 
-http POST http://levidimartino.pythonanywhere.com/api/polls/1/vote/    (http://levidimartino.pythonanywhere.com/api/polls/1/vote/) \
+http POST http://levidimartino.pythonanywhere.com/api/polls/1/vote/    #http://levidimartino.pythonanywhere.com/api/polls/1/vote/ \
   "Authorization: Bearer <INSERISCI_TOKEN_ACCESS>" \
   choice=1
 ```
