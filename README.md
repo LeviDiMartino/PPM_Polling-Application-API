@@ -55,11 +55,12 @@ Di seguito sono riportate ordinatamente le istruzioni da eseguire per testare l'
 ### Fase 1: Richieste di Accesso Pubbliche (Anonimo, nessun token)
 Chiunque può consultare l'elenco dei sondaggi attivi e i relativi risultati.
 
+1. Recupera la lista di tutti i sondaggi presenti
 ```bash
-# 1. Recupera la lista di tutti i sondaggi presenti
 http --unsorted GET http://levidimartino.pythonanywhere.com/api/polls/  
-
-# 2. Visualizza l'endpoint specifico dei risultati per il sondaggio scelto in base al ID (per scegliere un sondaggio modifica il campo id)
+```
+2. Visualizza l'endpoint specifico dei risultati per il sondaggio scelto in base al ID (per scegliere un sondaggio modifica il campo id)
+```bash
 http GET http://levidimartino.pythonanywhere.com/api/polls/id/results/  
 ```
 
@@ -89,17 +90,17 @@ http POST http://levidimartino.pythonanywhere.com/api/polls/id/vote/ "Authorizat
 #6. TEST UNICITÀ DEL VOTO: L'Utente 1 prova a votare di nuovo lo stesso sondaggio 
 ```bash
 Riusa il comando precedente usando lo stesso ID del sondaggio (l'ID della scelta è indifferente).
-
-# Il sistema intercetta la violazione e risponde con: HTTP 400 Bad Request ("You have already voted in this poll.")
 ```
+Il sistema intercetta la violazione e risponde con: HTTP 400 Bad Request ("You have already voted in this poll.")
 
 ### Fase 5: Cancellazione di una singola opzione di risposta 
 Un utente autorizzato ha il permesso di cancellare le opzioni dei sondaggi da lui creati
 
+Prova a sostituire il campo id con l'ID della scelta "FastAPI" di prima, per cancellarla)
 ```bash
-# Prova a sostituire il campo id con l'ID della scelta "FastAPI" di prima, per cancellarla)
 http DELETE http://levidimartino.pythonanywhere.com/api/choices/id/ "Authorization: Bearer <INCOLLA_TOKEN_UTENTE_1>"
 ```
+Se la risposta del server è: 204 No Content, significa che la cancellazione è avvenuta con successo.
 
 ### Fase 6: Test delle Restrizioni e Azioni Vietate (Security Check)
 Il sistema è progettato per respingere tempestivamente i tentativi di violazione delle regole di business.
