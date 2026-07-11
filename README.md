@@ -57,10 +57,10 @@ Chiunque può consultare l'elenco dei sondaggi attivi e i relativi risultati.
 
 ```bash
 # 1. Recupera la lista di tutti i sondaggi presenti
-http --sorted=no GET http://levidimartino.pythonanywhere.com/api/polls/   #http://levidimartino.pythonanywhere.com/api/polls/
+http --unsorted GET http://levidimartino.pythonanywhere.com/api/polls/  
 
 # 2. Visualizza l'endpoint specifico dei risultati per il sondaggio scelto in base al ID (per scegliere un sondaggio modifica il campo id)
-http GET http://levidimartino.pythonanywhere.com/api/polls/id/results/   #http://levidimartino.pythonanywhere.com/api/polls/1/results/
+http GET http://levidimartino.pythonanywhere.com/api/polls/id/results/  
 ```
 
 ### Fase 2: Autenticazione e Creazione (Ottenimento Token JWT)
@@ -69,22 +69,23 @@ Per eseguire operazioni di scrittura, l'utente deve scambiare le proprie credenz
 ```bash
 # 3. Login dell' Utente 1 (Copia l' acess token, dovrai sostituirlo nei comandi successivi) 
 # (provare se si vuole a inserire prima credenziali errate da quelle precedentemente specificate)
-http -j POST http://levidimartino.pythonanywhere.com/api/token/ username="AuthenticatedUser1" password="Polls1" #http://levidimartino.pythonanywhere.com/api/token/ username="AuthenticatedUser1" password="Polls1")
+http -j POST http://levidimartino.pythonanywhere.com/api/token/ username="AuthenticatedUser1" password="Polls1" 
 
 ```
 ### Fase 3: Creazione Sondaggio (per utente autenticato copia Token)
 
 # 4. Creazione di un nuovo sondaggio da parte dell'Utente 1 (Prendi nota dell'ID restituito) (se vuoi personalizza la domanda o le scelte tra le virgolette)
 ```bash
-http --sorted=no -j POST http://levidimartino.pythonanywhere.com/api/polls/ "Authorization: Bearer <INCOLLA_TOKEN_UTENTE_1>" question="Quale framework preferisci per le API?" choices[0][choice_text]="Django REST Framework" choices[1][choice_text]="FastAPI" choices[2][choice_text]="Flask"
+http --unsorted -j POST http://levidimartino.pythonanywhere.com/api/polls/ "Authorization: Bearer <INCOLLA_TOKEN_UTENTE_1>" question="Quale framework preferisci per le API?" choices[0][choice_text]="Django REST Framework" choices[1][choice_text]="FastAPI" choices[2][choice_text]="Flask"
 ```
+(se --unsorted da problemi rimuoverlo o scrivere "--sorted=no" al suo posto)
 
 ### Fase 4: Voto e Restrizioni (Operazioni Protette, valide solo per autente Autenticato)
 Utilizzando il token JWT all'interno dell'header Authorization, l'utente può ora interagire attivamente con l'applicazione.
 
 #5. L'Utente 1 vota per un sondaggio (es. sostituisci al campo id l'ID del sondaggio che vuoi votare e dopo l'ID della tua scelta)
 ```bash
-http POST http://levidimartino.pythonanywhere.com/api/polls/id/vote/ "Authorization: Bearer <INCOLLA_TOKEN_UTENTE_1>" choice=<id>
+http POST http://levidimartino.pythonanywhere.com/api/polls/id/vote/ "Authorization: Bearer <INCOLLA_TOKEN_UTENTE_1>" choice=id
 ```
 #6. TEST UNICITÀ DEL VOTO: L'Utente 1 prova a votare di nuovo lo stesso sondaggio 
 ```bash
@@ -98,7 +99,7 @@ Un utente autorizzato ha il permesso di cancellare le opzioni dei sondaggi da lu
 
 ```bash
 # Prova a sostituire il campo id con l'ID della scelta "FastAPI" di prima, per cancellarla)
-http DELETE http://levidimartino.pythonanywhere.com/api/choices/id/ \ "Authorization: Bearer <INCOLLA_TOKEN_UTENTE_1>"
+http DELETE http://levidimartino.pythonanywhere.com/api/choices/id/ "Authorization: Bearer <INCOLLA_TOKEN_UTENTE_1>"
 ```
 
 ### Fase 6: Test delle Restrizioni e Azioni Vietate (Security Check)
@@ -112,7 +113,7 @@ Un utente autorizzato non può cancellare un sondaggio non suo.
 http -j POST http://levidimartino.pythonanywhere.com/api/token/ username="AuthenticatedUser2" password="Polls2" 
 
 # Prova a cancellare il sondaggio creato dall' Utente 1 (sostituisci l'ID del sondaggio nel campo <id> e inserisci il token del utente 2)
-http DELETE http://levidimartino.pythonanywhere.com/api/polls/<id>/ \   #http://levidimartino.pythonanywhere.com/api/polls/1/
+http DELETE http://levidimartino.pythonanywhere.com/api/polls/<id>/ \  
   "Authorization: Bearer <TOKEN_UTENTE_2>"
 
 # Il sistema blocca la richiesta rispondendo con: HTTP 403 Forbidden ("You do not have permission to perform this action.")
