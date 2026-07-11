@@ -60,7 +60,7 @@ Chiunque può consultare l'elenco dei sondaggi attivi e i relativi risultati.
 http --unsorted GET http://levidimartino.pythonanywhere.com/api/polls/   #http://levidimartino.pythonanywhere.com/api/polls/
 
 # 2. Visualizza l'endpoint specifico dei risultati per il sondaggio scelto in base al ID (per scegliere un sondaggio modifica il campo id)
-http GET http://levidimartino.pythonanywhere.com/api/polls/id/results   #http://levidimartino.pythonanywhere.com/api/polls/1/results/
+http GET http://levidimartino.pythonanywhere.com/api/polls/id/results/   #http://levidimartino.pythonanywhere.com/api/polls/1/results/
 ```
 
 ### Fase 2: Autenticazione e Creazione (Ottenimento Token JWT)
