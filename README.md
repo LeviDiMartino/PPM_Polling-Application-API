@@ -57,7 +57,7 @@ Chiunque può consultare l'elenco dei sondaggi attivi e i relativi risultati.
 
 ```bash
 # 1. Recupera la lista di tutti i sondaggi presenti
-http --unsorted GET http://levidimartino.pythonanywhere.com/api/polls/   #http://levidimartino.pythonanywhere.com/api/polls/
+http --sorted=no GET http://levidimartino.pythonanywhere.com/api/polls/   #http://levidimartino.pythonanywhere.com/api/polls/
 
 # 2. Visualizza l'endpoint specifico dei risultati per il sondaggio scelto in base al ID (per scegliere un sondaggio modifica il campo id)
 http GET http://levidimartino.pythonanywhere.com/api/polls/id/results/   #http://levidimartino.pythonanywhere.com/api/polls/1/results/
@@ -76,7 +76,7 @@ http -j POST http://levidimartino.pythonanywhere.com/api/token/ username="Authen
 
 # 4. Creazione di un nuovo sondaggio da parte dell'Utente 1 (Prendi nota dell'ID restituito) (se vuoi personalizza la domanda o le scelte tra le virgolette)
 ```bash
-http -j POST http://levidimartino.pythonanywhere.com/api/polls/ "Authorization: Bearer <INCOLLA_TOKEN_UTENTE_1>"  question="Quale framework preferisci per le API?" choices:='[{"choice_text": "Django"}, {"choice_text": "FastAPI"}, {"choice_text": "Flask"}]'
+http --sorted=no -j POST http://levidimartino.pythonanywhere.com/api/polls/ "Authorization: Bearer <INCOLLA_TOKEN_UTENTE_1>" question="Quale framework preferisci per le API?" choices[0][choice_text]="Django REST Framework" choices[1][choice_text]="FastAPI" choices[2][choice_text]="Flask"
 ```
 
 ### Fase 4: Voto e Restrizioni (Operazioni Protette, valide solo per autente Autenticato)
