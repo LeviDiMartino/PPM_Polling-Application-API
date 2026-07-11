@@ -28,11 +28,11 @@ Il database di produzione include già dati realistici di test. Per le verifiche
 
 | Ruolo | Username | Password | Permessi operativi |
 | :--- | :--- | :--- | :--- |
-| **Utente Standard 1** | `AuthenticatedUser1` | `SafePolls1` | Gestisce solo i propri dati, vota |
-| **Utente Standard 2** | `AuthenticatedUser2` | `SafePolls2` | Utilizzato per testare le azioni vietate |
-| **Utente Standard 3** | `AuthenticatedUser3` | `SafePolls3` | Utilizzato per aggiungere voti |
-| **Utente Standard 4** | `AuthenticatedUser4` | `SafePolls4` | Utilizzato per aggiungere voti |
-| **Utente Standard 5** | `AuthenticatedUser3` | `SafePolls3` | Utilizzato per aggiungere voti |
+| **Utente 1** | `AuthenticatedUser1` | `SafePolls1` | Gestisce solo i propri dati, vota |
+| **Utente 2** | `AuthenticatedUser2` | `SafePolls2` | Utilizzato per testare le azioni vietate |
+| **Utente 3** | `AuthenticatedUser3` | `SafePolls3` | Utilizzato per aggiungere voti |
+| **Utente 4** | `AuthenticatedUser4` | `SafePolls4` | Utilizzato per aggiungere voti |
+| **Utente 5** | `AuthenticatedUser3` | `SafePolls3` | Utilizzato per aggiungere voti |
 | **Amministratore** | `admin` | `admin1234` | Controllo e moderazione globale totale |
 
 ---
