@@ -66,11 +66,10 @@ http GET http://levidimartino.pythonanywhere.com/api/polls/id/results/
 ### Fase 2: Autenticazione e Creazione (Ottenimento Token JWT)
 Per eseguire operazioni di scrittura, l'utente deve scambiare le proprie credenziali con un token di accesso.
 
+3. Login dell' Utente 1 (Copia l' acess token, dovrai sostituirlo nei comandi successivi) 
+ (provare se si vuole a inserire prima credenziali errate da quelle precedentemente specificate)
 ```bash
-# 3. Login dell' Utente 1 (Copia l' acess token, dovrai sostituirlo nei comandi successivi) 
-# (provare se si vuole a inserire prima credenziali errate da quelle precedentemente specificate)
 http -j POST http://levidimartino.pythonanywhere.com/api/token/ username="AuthenticatedUser1" password="Polls1" 
-
 ```
 ### Fase 3: Creazione Sondaggio (per utente autenticato copia Token)
 
