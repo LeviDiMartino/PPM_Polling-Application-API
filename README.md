@@ -72,8 +72,9 @@ http GET http://levidimartino.pythonanywhere.com/api/polls/id/results/
 ### Fase 2: Autenticazione e Creazione (Ottenimento Token JWT)
 Per eseguire operazioni di scrittura, l'utente deve scambiare le proprie credenziali con un token di accesso.
 
-3. Login dell' Utente 0 (Copia l' acess token, dovrai sostituirlo nei comandi successivi) 
- (provare se si vuole a inserire prima credenziali errate da quelle precedentemente specificate)
+3. Login dell' Utente 0 (Copia l' access token, dovrai sostituirlo nei comandi successivi) 
+ (provare se si vuole a inserire prima credenziali errate da quelle specificate)
+
 ```bash
 http -j POST http://levidimartino.pythonanywhere.com/api/token/ username="AuthenticatedUser0" password="SafePolls0" 
 ```
@@ -83,40 +84,40 @@ http -j POST http://levidimartino.pythonanywhere.com/api/token/ username="Authen
 ```bash
 http --unsorted -j POST http://levidimartino.pythonanywhere.com/api/polls/ question="Quale framework preferisci per le API?" choices[0][choice_text]="Django" choices[1][choice_text]="FastAPI" choices[2][choice_text]="Flask" "Authorization: Bearer <INCOLLA_TOKEN_UTENTE_0>"
 ```
-Prendi nota dell'ID del sondaggio restituito.  Se vuoi personalizza la domanda o le scelte tra le virgolette)
+Prendi nota dell'ID del sondaggio restituito.  Se vuoi personalizza la domanda o le scelte tra le virgolette.
 (se --unsorted da problemi rimuovilo o scrivi "--sorted=no" al suo posto)
 
 ### Fase 4: Voto e Restrizioni (Operazioni Protette, valide solo per autente Autenticato)
 Utilizzando il token JWT all'interno dell'header Authorization, l'utente può ora interagire attivamente con l'applicazione.
 
-#5. L'Utente 1 vota per un sondaggio (es. sostituisci al campo id l'ID del sondaggio che vuoi votare e dopo l'ID della tua scelta)
+#5. L'Utente 0 vota per un sondaggio (es. sostituisci al campo id l'ID del sondaggio che vuoi votare e dopo l'ID della tua scelta)
 ```bash
 http POST http://levidimartino.pythonanywhere.com/api/polls/id/vote/ "Authorization: Bearer <INCOLLA_TOKEN_UTENTE_0>" choice=id 
 ```
-#6. TEST UNICITÀ DEL VOTO: L'Utente 1 prova a votare di nuovo lo stesso sondaggio 
+#6. TEST UNICITÀ DEL VOTO: L'Utente 0 prova a votare di nuovo lo stesso sondaggio 
+
 ```bash
 Riusa il comando precedente usando lo stesso ID del sondaggio (l'ID della scelta è indifferente).
 ```
 Il sistema intercetta la violazione e risponde con: HTTP 400 Bad Request ("You have already voted in this poll.")
 
 ### Fase 5: Cancellazione di una singola opzione di risposta 
-Un utente autorizzato ha il permesso di cancellare le opzioni dei sondaggi da lui creati
+Un utente autorizzato ha il permesso di cancellare le opzioni dei sondaggi da lui creati.
 
-Prova a sostituire il campo id con l'ID della scelta "FastAPI" di prima, per cancellarla)
+Prova a sostituire il campo id con l'ID della scelta "FastAPI" di prima, per cancellarla.
 ```bash
 http DELETE http://levidimartino.pythonanywhere.com/api/choices/id/ "Authorization: Bearer <INCOLLA_TOKEN_UTENTE_0>"
 ```
 Se la risposta del server è: 204 No Content, significa che la cancellazione è avvenuta con successo.
 
 ### Fase 6: Test delle Restrizioni e Azioni Vietate (Security Check)
-Il sistema è progettato per respingere tempestivamente i tentativi di violazione delle regole di business.
-Un utente autorizzato non può cancellare o modificare un sondaggio non suo. 
+Il sistema è progettato per respingere i tentativi di violazione delle regole di business. Un utente autorizzato non può cancellare o modificare un sondaggio non suo. 
 
-7. Fai il login dell' Utente 2 (Copia l' access token)
+7. Fai il login dell' Utente 1 (Copia l' access token)
 ```bash
 http -j POST http://levidimartino.pythonanywhere.com/api/token/ username="AuthenticatedUser1" password="SafePolls1" 
 ```
-8. Prova a cancellare il sondaggio creato dall' Utente 1 (sostituisci l'ID del sondaggio nel campo <id> e inserisci il token del utente 2)
+8. Prova a cancellare il sondaggio creato dall'Utente 0 (sostituisci l'ID del sondaggio nel campo <id> e inserisci il token del utente 1)
 ```bash
 http DELETE http://levidimartino.pythonanywhere.com/api/polls/id/ "Authorization: Bearer <TOKEN_UTENTE_1>"
 ```
@@ -128,7 +129,7 @@ Fai il login come admin
 ```bash
 http -j POST http://levidimartino.pythonanywhere.com/api/token/ username="admin" password="admin1234"
 ```
-Prova a cancellare il sondaggio appena creato dal Utente 1 (sostituisci il campi id con quello del sondaggio di Utente 1 visto prima)
+Prova a cancellare il sondaggio appena creato dal Utente 0 (sostituisci il campo id con l'ID del sondaggio creato dall' Utente 0)
 ```bash
 http DELETE http://levidimartino.pythonanywhere.com/api/polls/15/  "Authorization: Bearer <INCOLLA_TOKEN_ADMIN>"
 ```
