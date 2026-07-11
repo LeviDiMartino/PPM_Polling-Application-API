@@ -130,7 +130,7 @@ http -j POST http://levidimartino.pythonanywhere.com/api/token/ username="admin"
 ```
 Prova a cancellare il sondaggio appena creato dal Utente 0 (sostituisci il campo id con l'ID del sondaggio creato dall' Utente 0)
 ```bash
-http DELETE http://levidimartino.pythonanywhere.com/api/polls/15/  "Authorization: Bearer <INCOLLA_TOKEN_ADMIN>"
+http DELETE http://levidimartino.pythonanywhere.com/api/polls/id/  "Authorization: Bearer <INCOLLA_TOKEN_ADMIN>"
 ```
 Se la risposta del server è: 204 No Content, significa che la cancellazione è avvenuta con successo.
 
