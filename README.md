@@ -46,12 +46,13 @@ Il database di produzione include già dati realistici di test. Tutti gli utenti
 | :--- | :--- | :--- | :--- | :--- |
 | **POST** | `/api/token/` | No | `{"username": "...", "password": "..."}` | Ottenimento Token JWT (Access & Refresh) |
 | **GET** | `/api/polls/` | No | - | Lista globale dei sondaggi |
-| **GET** | `/api/polls/<id>/` | No | - | Dettaglio singolo sondaggio (con opzioni annidate) |
-| **GET** | `/api/polls/<id>/results/` | No | - | Endpoint dedicato ai soli risultati del sondaggio |
+| **GET** | `/api/polls/id/` | No | - | Dettaglio singolo sondaggio (con opzioni annidate) |
+| **GET** | `/api/polls/id/results/` | No | - | Endpoint dedicato ai soli risultati del sondaggio |
 | **POST** | `/api/polls/` | **Sì (JWT)** | `{"question": "Testo domanda?"}` | Creazione di un nuovo sondaggio |
-| **DELETE**| `/api/polls/<id>/` | **Sì (JWT)** | - | Cancellazione sondaggio (Solo proprietario o Admin) |
-| **POST** | `/api/polls/<id>/vote/` | **Sì (JWT)** | `{"choice": <id_opzione>}` | Invio votazione (Max 1 voto per utente) |
+| **DELETE**| `/api/polls/id/` | **Sì (JWT)** | - | Cancellazione sondaggio (Solo proprietario o Admin) |
+| **POST** | `/api/polls/id/vote/` | **Sì (JWT)** | `{"choice": <id_opzione>}` | Invio votazione (Max 1 voto per utente) |
 
+Inseriere nel campo "id" l'ID effettivo del sondaggio/poll.
 ---
 
 ## 5. Test Guidato (con HTTPie)
