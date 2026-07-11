@@ -2,7 +2,7 @@
 
 * **Studente:** Levi Di Martino Serafim
 * **Matricola:** 7083297
-* **Progetto:** REST API (Traccia 6)
+* **Progetto:** Polling REST API (Traccia 6)
 * **Framework:** Django 5 / Django REST Framework
 * **Autenticazione:** JWT (JSON Web Tokens)
 
