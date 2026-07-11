@@ -131,6 +131,7 @@ Prova a cancellare il sondaggio appena creato dal Utente 1 (sostituisci il campi
 ```bash
 http DELETE http://levidimartino.pythonanywhere.com/api/polls/15/  "Authorization: Bearer <INCOLLA_TOKEN_ADMIN>"
 ```
+Se la risposta del server è: 204 No Content, significa che la cancellazione è avvenuta con successo.
 
 ```bash
 # Clonazione ed accesso alla cartella
