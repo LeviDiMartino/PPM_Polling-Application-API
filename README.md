@@ -157,8 +157,8 @@ pip install -r requirements.txt
 Questo progetto include una documentazione ufficiale e interattiva generata automaticamente tramite **OpenAPI (drf-spectacular)**. Swagger UI offre un'interfaccia grafica intuitiva che permette di esplorare l'architettura dell'API e di testare direttamente gli endpoint dal browser, senza la necessità di utilizzare terminali o strumenti esterni come Postman.
 
 ### 🔗 Link di Accesso
-* **Ambiente Locale:** `http://127.0.0.1:8000/api/docs/`
-* **Ambiente di Produzione:** `https://levidimartino.pythonanywhere.com/api/docs/`
+* **Ambiente Locale:** http://127.0.0.1:8000/api/docs/
+* **Ambiente di Produzione:** https://levidimartino.pythonanywhere.com/api/docs/
 
 ### 🛠️ Guida all'utilizzo e al testing dell'API
 
