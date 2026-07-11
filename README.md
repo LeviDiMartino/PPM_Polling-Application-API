@@ -28,8 +28,11 @@ Il database di produzione include già dati realistici di test. Per le verifiche
 
 | Ruolo | Username | Password | Permessi operativi |
 | :--- | :--- | :--- | :--- |
-| **Utente Standard 1** | `AuthenticatedUser1` | `Polls1` | Gestisce solo i propri dati, vota |
-| **Utente Standard 2** | `AuthenticatedUser2` | `Polls2` | Utilizzato per testare le azioni vietate |
+| **Utente Standard 1** | `AuthenticatedUser1` | `SafePolls1` | Gestisce solo i propri dati, vota |
+| **Utente Standard 2** | `AuthenticatedUser2` | `SafePolls2` | Utilizzato per testare le azioni vietate |
+| **Utente Standard 3** | `AuthenticatedUser3` | `SafePolls3` | Utilizzato per aggiungere voti |
+| **Utente Standard 4** | `AuthenticatedUser4` | `SafePolls4` | Utilizzato per aggiungere voti |
+| **Utente Standard 5** | `AuthenticatedUser3` | `SafePolls3` | Utilizzato per aggiungere voti |
 | **Amministratore** | `admin` | `admin1234` | Controllo e moderazione globale totale |
 
 ---
@@ -70,7 +73,7 @@ Per eseguire operazioni di scrittura, l'utente deve scambiare le proprie credenz
 3. Login dell' Utente 1 (Copia l' acess token, dovrai sostituirlo nei comandi successivi) 
  (provare se si vuole a inserire prima credenziali errate da quelle precedentemente specificate)
 ```bash
-http -j POST http://levidimartino.pythonanywhere.com/api/token/ username="AuthenticatedUser1" password="Polls1" 
+http -j POST http://levidimartino.pythonanywhere.com/api/token/ username="AuthenticatedUser1" password="SafePolls1" 
 ```
 
 ### Fase 3. Creazione di un nuovo sondaggio (da parte dell'Utente 1)
@@ -109,7 +112,7 @@ Un utente autorizzato non può cancellare o modificare un sondaggio non suo.
 
 7. Fai il login dell' Utente 2 (Copia l' access token)
 ```bash
-http -j POST http://levidimartino.pythonanywhere.com/api/token/ username="AuthenticatedUser2" password="Polls2" 
+http -j POST http://levidimartino.pythonanywhere.com/api/token/ username="AuthenticatedUser2" password="SafePolls2" 
 ```
 8. Prova a cancellare il sondaggio creato dall' Utente 1 (sostituisci l'ID del sondaggio nel campo <id> e inserisci il token del utente 2)
 ```bash
