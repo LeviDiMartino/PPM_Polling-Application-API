@@ -147,10 +147,13 @@ cd PPM_Polling-Application-API
 
 # Configurazione dell'ambiente virtuale Python
 python -m venv venv
-source venv/Scripts/activate  # Su Windows usa: venv\Scripts\activate
+source venv/Scripts/activate  # Su Windows (Git Bash): source venv/Scripts/activate
 
-# Installazione dipendenze e avvio
+# Installazione dipendenze
 pip install -r requirements.txt
+
+# Avvio del server locale (con flag --insecure perché DEBUG=False)
+python manage.py runserver --insecure
 ```
 ---
 
