@@ -42,6 +42,8 @@ Il database di produzione include già dati realistici di test. Tutti gli utenti
 
 ## 4. Endpoints dell'Applicazione
 
+Inserire nel campo "id" l'ID effettivo del sondaggio/poll.
+
 | Metodo | URL | Auth | JSON Body (Esempio) | Descrizione |
 | :--- | :--- | :--- | :--- | :--- |
 | **POST** | `/api/token/` | No | `{"username": "...", "password": "..."}` | Ottenimento Token JWT (Access & Refresh) |
@@ -52,7 +54,6 @@ Il database di produzione include già dati realistici di test. Tutti gli utenti
 | **DELETE**| `/api/polls/id/` | **Sì (JWT)** | - | Cancellazione sondaggio (Solo proprietario o Admin) |
 | **POST** | `/api/polls/id/vote/` | **Sì (JWT)** | `{"choice": <id_opzione>}` | Invio votazione (Max 1 voto per utente) |
 
-Inseriere nel campo "id" l'ID effettivo del sondaggio/poll.
 ---
 
 ## 5. Test Guidato (con HTTPie)
