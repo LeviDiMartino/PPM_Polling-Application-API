@@ -22,7 +22,9 @@ API REST per la gestione di sondaggi in tempo reale. Il sistema permette di cons
 
 ## 3. Deployment & Database Demo
 L'API è pubblicata in cloud ed è pienamente operativa al seguente indirizzo:
-🌐 **[http://levidimartino.pythonanywhere.com/]**
+🌐 **http://levidimartino.pythonanywhere.com/**
+
+Per consultare il database, loggarsi con le credenziali da admin al seguente sito: 🌐 **https://levidimartino.pythonanywhere.com/admin/login/?next=/admin/**
 
 Il database di produzione include già dati realistici di test. Tutti gli utenti, compreso l'admin ed escluso l'Utente 0, hanno già espresso un voto per ogni sondaggio attualmente disponibile. Per le verifiche sono disponibili i seguenti account pre-configurati:
 
