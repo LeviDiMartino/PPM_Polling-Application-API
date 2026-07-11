@@ -104,22 +104,17 @@ Se la risposta del server è: 204 No Content, significa che la cancellazione è 
 
 ### Fase 6: Test delle Restrizioni e Azioni Vietate (Security Check)
 Il sistema è progettato per respingere tempestivamente i tentativi di violazione delle regole di business.
-Un utente autorizzato non può cancellare un sondaggio non suo. 
+Un utente autorizzato non può cancellare o modificare un sondaggio non suo. 
 
+7. Fai il login dell' Utente 2 (Copia l' access token)
 ```bash
-
-# 7. TEST PERMESSI DI OGGETTO (Restrizione modifica/cancellazione)
-# Fai il login dell' Utente 2 (Copia l' access token)
 http -j POST http://levidimartino.pythonanywhere.com/api/token/ username="AuthenticatedUser2" password="Polls2" 
-
-# Prova a cancellare il sondaggio creato dall' Utente 1 (sostituisci l'ID del sondaggio nel campo <id> e inserisci il token del utente 2)
-http DELETE http://levidimartino.pythonanywhere.com/api/polls/id/ "Authorization: Bearer <TOKEN_UTENTE_2>"
-
-# Il sistema blocca la richiesta rispondendo con: HTTP 403 Forbidden ("You do not have permission to perform this action.")
 ```
-
-###Installazione e Avvio Locale (Opzionale)
-Qualora si preferisse eseguire ed ispezionare il server in un ambiente di sviluppo locale:
+8. Prova a cancellare il sondaggio creato dall' Utente 1 (sostituisci l'ID del sondaggio nel campo <id> e inserisci il token del utente 2)
+```bash
+http DELETE http://levidimartino.pythonanywhere.com/api/polls/id/ "Authorization: Bearer <TOKEN_UTENTE_2>"
+```
+Il sistema blocca la richiesta rispondendo con: HTTP 403 Forbidden ("You do not have permission to perform this action.")
 
 ### Fase 7: Permessi Admin
 
@@ -132,6 +127,9 @@ Prova a cancellare il sondaggio appena creato dal Utente 1 (sostituisci il campi
 http DELETE http://levidimartino.pythonanywhere.com/api/polls/15/  "Authorization: Bearer <INCOLLA_TOKEN_ADMIN>"
 ```
 Se la risposta del server è: 204 No Content, significa che la cancellazione è avvenuta con successo.
+
+### Installazione e Avvio Locale (Opzionale)
+Qualora si preferisse eseguire ed ispezionare il server in un ambiente di sviluppo locale:
 
 ```bash
 # Clonazione ed accesso alla cartella
