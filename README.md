@@ -74,22 +74,20 @@ http -j POST http://levidimartino.pythonanywhere.com/api/token/ username="Authen
 ```
 ### Fase 3: Creazione Sondaggio (per utente autenticato copia Token)
 
-```bash
 # 4. Creazione di un nuovo sondaggio da parte dell'Utente 1 (Prendi nota dell'ID restituito) (se vuoi personalizza la domanda o le scelte tra le virgolette)
-http -j POST http://levidimartino.pythonanywhere.com/api/polls/ "Authorization: Bearer <INCOLLA_TOKEN_UTENTE_1>"  question="Quale framework preferisci per le API?" choices:='[{"choice_text": "Django REST Framework"}, {"choice_text": "FastAPI"}, {"choice_text": "Flask"}]'
+```bash
+http -j POST http://levidimartino.pythonanywhere.com/api/polls/ "Authorization: Bearer <INCOLLA_TOKEN_UTENTE_1>"  question="Quale framework preferisci per le API?" choices:='[{"choice_text": "Django"}, {"choice_text": "FastAPI"}, {"choice_text": "Flask"}]'
 ```
 
 ### Fase 4: Voto e Restrizioni (Operazioni Protette, valide solo per autente Autenticato)
 Utilizzando il token JWT all'interno dell'header Authorization, l'utente può ora interagire attivamente con l'applicazione.
 
+#5. L'Utente 1 vota per un sondaggio (es. sostituisci al campo id l'ID del sondaggio che vuoi votare e dopo l'ID della tua scelta)
 ```bash
-# 5. L'Utente 1 vota per un sondaggio (es. sostituisci al campo id l'ID del sondaggio che vuoi votare e dopo l'ID della tua scelta)
-
-http POST http://levidimartino.pythonanywhere.com/api/polls/id/vote/ \"Authorization: Bearer <INCOLLA_TOKEN_UTENTE_1>" \
-  choice=<id>
+http POST http://levidimartino.pythonanywhere.com/api/polls/id/vote/ "Authorization: Bearer <INCOLLA_TOKEN_UTENTE_1>" choice=<id>
 ```
+#6. TEST UNICITÀ DEL VOTO: L'Utente 1 prova a votare di nuovo lo stesso sondaggio 
 ```bash
-# 6. TEST UNICITÀ DEL VOTO: L'Utente 1 prova a votare di nuovo lo stesso sondaggio 
 Riusa il comando precedente usando lo stesso ID del sondaggio (l'ID della scelta è indifferente).
 
 # Il sistema intercetta la violazione e risponde con: HTTP 400 Bad Request ("You have already voted in this poll.")
