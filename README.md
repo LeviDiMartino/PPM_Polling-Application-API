@@ -72,13 +72,14 @@ Per eseguire operazioni di scrittura, l'utente deve scambiare le proprie credenz
 ```bash
 http -j POST http://levidimartino.pythonanywhere.com/api/token/ username="AuthenticatedUser1" password="Polls1" 
 ```
-### Fase 3: Creazione Sondaggio (per utente autenticato copia Token)
 
-# 4. Creazione di un nuovo sondaggio da parte dell'Utente 1 (Prendi nota dell'ID restituito) (se vuoi personalizza la domanda o le scelte tra le virgolette)
+# Fase 3. Creazione di un nuovo sondaggio (da parte dell'Utente 1)
+
 ```bash
 http --unsorted -j POST http://levidimartino.pythonanywhere.com/api/polls/ question="Quale framework preferisci per le API?" choices[0][choice_text]="Django" choices[1][choice_text]="FastAPI" choices[2][choice_text]="Flask" "Authorization: Bearer <INCOLLA_TOKEN_UTENTE_1>"
 ```
-(se --unsorted da problemi rimuoverlo o scrivere "--sorted=no" al suo posto)
+Prendi nota dell'ID del sondaggio restituito.  Se vuoi personalizza la domanda o le scelte tra le virgolette)
+(se --unsorted da problemi rimuovilo o scrivi "--sorted=no" al suo posto)
 
 ### Fase 4: Voto e Restrizioni (Operazioni Protette, valide solo per autente Autenticato)
 Utilizzando il token JWT all'interno dell'header Authorization, l'utente può ora interagire attivamente con l'applicazione.
