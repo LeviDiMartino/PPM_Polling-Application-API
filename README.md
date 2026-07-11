@@ -85,12 +85,12 @@ http -j POST http://levidimartino.pythonanywhere.com/api/polls/ \"Authorization:
 Utilizzando il token JWT all'interno dell'header Authorization, l'utente può ora interagire attivamente con l'applicazione.
 
 ```bash
-
 # 5. L'Utente 1 vota per un sondaggio (es. sostituisci al campo <id> l'ID del sondaggio che vuoi votare e dopo l'ID della tua scelta)
 
 http POST http://levidimartino.pythonanywhere.com/api/polls/<id>/vote/ \"Authorization: Bearer <INCOLLA_TOKEN_UTENTE_1>" \
   choice=<id>
-
+```
+```bash
 # 6. TEST UNICITÀ DEL VOTO: L'Utente 1 prova a votare di nuovo lo stesso sondaggio 
 Riusa il comando precedente usando lo stesso ID del sondaggio (l'ID della scelta è indifferente).
 
@@ -117,7 +117,7 @@ http -j POST http://levidimartino.pythonanywhere.com/api/token/ username="Authen
 
 # Prova a cancellare il sondaggio creato dall' Utente 1 (sostituisci l'ID del sondaggio nel campo <id> e inserisci il token del utente 2)
 http DELETE http://levidimartino.pythonanywhere.com/api/polls/<id>/ \   #http://levidimartino.pythonanywhere.com/api/polls/1/
-  "Authorization: Bearer <TOKEN_DI_USER_DEMO_2>"
+  "Authorization: Bearer <TOKEN_UTENTE_2>"
 
 # Il sistema blocca la richiesta rispondendo con: HTTP 403 Forbidden ("You do not have permission to perform this action.")
 ```
