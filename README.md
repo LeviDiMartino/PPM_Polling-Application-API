@@ -59,8 +59,8 @@ Chiunque può consultare l'elenco dei sondaggi attivi e i relativi risultati.
 # 1. Recupera la lista di tutti i sondaggi presenti
 http --unsorted GET http://levidimartino.pythonanywhere.com/api/polls/   #http://levidimartino.pythonanywhere.com/api/polls/
 
-# 2. Visualizza l'endpoint specifico dei risultati per il sondaggio scelto in base al ID (per scegliere un sondaggio modifica il campo del ID)
-http GET http://levidimartino.pythonanywhere.com/api/polls/1/results   #http://levidimartino.pythonanywhere.com/api/polls/1/results/
+# 2. Visualizza l'endpoint specifico dei risultati per il sondaggio scelto in base al ID (per scegliere un sondaggio modifica il campo id)
+http GET http://levidimartino.pythonanywhere.com/api/polls/id/results   #http://levidimartino.pythonanywhere.com/api/polls/1/results/
 ```
 
 ### Fase 2: Autenticazione e Creazione (Ottenimento Token JWT)
@@ -85,9 +85,9 @@ http -j POST http://levidimartino.pythonanywhere.com/api/polls/ \"Authorization:
 Utilizzando il token JWT all'interno dell'header Authorization, l'utente può ora interagire attivamente con l'applicazione.
 
 ```bash
-# 5. L'Utente 1 vota per un sondaggio (es. sostituisci al campo <id> l'ID del sondaggio che vuoi votare e dopo l'ID della tua scelta)
+# 5. L'Utente 1 vota per un sondaggio (es. sostituisci al campo id l'ID del sondaggio che vuoi votare e dopo l'ID della tua scelta)
 
-http POST http://levidimartino.pythonanywhere.com/api/polls/<id>/vote/ \"Authorization: Bearer <INCOLLA_TOKEN_UTENTE_1>" \
+http POST http://levidimartino.pythonanywhere.com/api/polls/id/vote/ \"Authorization: Bearer <INCOLLA_TOKEN_UTENTE_1>" \
   choice=<id>
 ```
 ```bash
@@ -101,8 +101,8 @@ Riusa il comando precedente usando lo stesso ID del sondaggio (l'ID della scelta
 Un utente autorizzato ha il permesso di cancellare le opzioni dei sondaggi da lui creati
 
 ```bash
-#Prova a sostituire <id> con l'ID della scelta "FastAPI" di prima, per cancellarla)
-http DELETE http://levidimartino.pythonanywhere.com/api/choices/<id>/ \ "Authorization: Bearer <INCOLLA_TOKEN_UTENTE_1>"
+# Prova a sostituire il campo id con l'ID della scelta "FastAPI" di prima, per cancellarla)
+http DELETE http://levidimartino.pythonanywhere.com/api/choices/id/ \ "Authorization: Bearer <INCOLLA_TOKEN_UTENTE_1>"
 ```
 
 ### Fase 6: Test delle Restrizioni e Azioni Vietate (Security Check)
