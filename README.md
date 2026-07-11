@@ -113,8 +113,7 @@ Un utente autorizzato non può cancellare un sondaggio non suo.
 http -j POST http://levidimartino.pythonanywhere.com/api/token/ username="AuthenticatedUser2" password="Polls2" 
 
 # Prova a cancellare il sondaggio creato dall' Utente 1 (sostituisci l'ID del sondaggio nel campo <id> e inserisci il token del utente 2)
-http DELETE http://levidimartino.pythonanywhere.com/api/polls/<id>/ \  
-  "Authorization: Bearer <TOKEN_UTENTE_2>"
+http DELETE http://levidimartino.pythonanywhere.com/api/polls/<id>/ "Authorization: Bearer <TOKEN_UTENTE_2>"
 
 # Il sistema blocca la richiesta rispondendo con: HTTP 403 Forbidden ("You do not have permission to perform this action.")
 ```
