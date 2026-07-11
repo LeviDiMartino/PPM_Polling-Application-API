@@ -149,6 +149,33 @@ source venv/Scripts/activate  # Su Windows usa: venv\Scripts\activate
 
 # Installazione dipendenze e avvio
 pip install -r requirements.txt
+```
+---
+
+## 📖 Documentazione Interattiva (Swagger UI)
+
+Questo progetto include una documentazione ufficiale e interattiva generata automaticamente tramite **OpenAPI (drf-spectacular)**. Swagger UI offre un'interfaccia grafica intuitiva che permette di esplorare l'architettura dell'API e di testare direttamente gli endpoint dal browser, senza la necessità di utilizzare terminali o strumenti esterni come Postman.
+
+### 🔗 Link di Accesso
+* **Ambiente Locale:** `http://127.0.0.1:8000/api/docs/`
+* **Ambiente di Produzione:** `https://levidimartino.pythonanywhere.com/api/docs/`
+
+### 🛠️ Guida all'utilizzo e al testing dell'API
+
+Per valutare il funzionamento del progetto direttamente tramite l'interfaccia di Swagger, è possibile seguire questa procedura:
+
+1.  **Esplorare gli Endpoint:** La pagina è organizzata in sezioni tematiche (es. `polls`, `choices`, `register`). Ogni riga rappresenta un endpoint dell'API identificato dal relativo metodo HTTP (GET, POST, PUT, DELETE).
+2.  **Eseguire una Richiesta Pubblica ("Try it out"):**
+    * Cliccare sull'endpoint desiderato (es. `POST /api/register/`) per espanderne i dettagli.
+    * Cliccare sul pulsante **"Try it out"** posizionato in alto a destra nel riquadro.
+    * Compilare o modificare i dati di esempio all'interno del riquadro JSON (es. inserire username e password).
+    * Cliccare sul pulsante blu **"Execute"** per inviare la richiesta. Nella sezione "Server response" apparirà il codice di stato HTTP e la risposta del database.
+3.  **Simulare il Login (Autenticazione JWT):** Per testare gli endpoint protetti (come la creazione di un sondaggio o il salvataggio di un voto), è necessario autenticarsi.
+    * Aprire l'endpoint `POST /api/token/`, cliccare su "Try it out", inserire le credenziali di un utente registrato ed eseguire la richiesta.
+    * Dalla risposta del server, copiare l'intera stringa di testo associata alla chiave `"access"`.
+    * Scorrere in cima alla pagina e cliccare sul pulsante **"Authorize"** (contrassegnato dall'icona di un lucchetto).
+    * Nel campo di testo fornito, digitare la parola `Bearer` seguita da uno spazio e incollare il token precedentemente copiato (Esempio: `Bearer eyJhbGciOiJIUz...`).
+    * Cliccare su **Authorize** e chiudere la finestra. Da questo momento, l'interfaccia memorizzerà il token e lo applicherà automaticamente a tutte le richieste successive, permettendo di testare le funzionalità riservate agli utenti autenticati.
 python manage.py migrate
 python manage.py runserver
 
