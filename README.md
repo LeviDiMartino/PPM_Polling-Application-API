@@ -9,7 +9,7 @@
 ---
 
 ## 1. Descrizione
-API REST per la gestione di sondaggi in tempo reale. Il sistema permette di consultare, creare, votare ed eliminare quesiti e relative opzioni (choices). L'applicazione implementa logiche di controllo stringenti sia sui permessi di modifica che sull'unicità del voto per singolo utente.
+API REST per la gestione di sondaggi in tempo reale. Il sistema permette di consultare, creare, votare ed eliminare sondaggi (question) e relative opzioni (choices). L'applicazione implementa logiche di controllo stringenti sia sui permessi di modifica che sull'unicità del voto per singolo utente.
 
 ---
 
@@ -24,7 +24,7 @@ API REST per la gestione di sondaggi in tempo reale. Il sistema permette di cons
 L'API è pubblicata in cloud ed è pienamente operativa al seguente indirizzo:
 🌐 **[http://levidimartino.pythonanywhere.com/api/](http://levidimartino.pythonanywhere.com/api/)**
 
-Il database di produzione include già dati realistici di test. Per le verifiche sono disponibili i seguenti account pre-configurati:
+Il database di produzione include già dati realistici di test. Tutti gli utenti, compreso l'admin ed escluso l'Utente 0, hanno già espresso un voto per ogni sondaggio attualmente disponibile. Per le verifiche sono disponibili i seguenti account pre-configurati:
 
 | Ruolo | Username | Password | Permessi operativi |
 | :--- | :--- | :--- | :--- |
@@ -36,7 +36,6 @@ Il database di produzione include già dati realistici di test. Per le verifiche
 | **Utente 5** | `AuthenticatedUser3` | `SafePolls3` | Utilizzato per aggiungere voti |
 | **Amministratore** | `admin` | `admin1234` | Controllo e moderazione globale totale |
 
-Tutti gli utenti, compreso l'admin ed escluso l'Utente 0, hanno già espresso un voto per ogni sondaggio attualmente disponibile.
 ---
 
 ## 4. Endpoints dell'Applicazione
@@ -55,7 +54,7 @@ Tutti gli utenti, compreso l'admin ed escluso l'Utente 0, hanno già espresso un
 
 ## 5. Scenario di Test Guidato (con HTTPie)
 
-Di seguito sono riportate ordinatamente le istruzioni da eseguire per testare l'intera API da terminale tramite **HTTPie**. Sostituisci le stringhe come <INCOLLA_TOKEN_UTENTE_1> con il token reale ottenuto nei primi passaggi.
+Di seguito sono riportate ordinatamente le istruzioni da eseguire per testare l'intera API da terminale tramite **HTTPie**. Sostituisci le stringhe come <INCOLLA_TOKEN_UTENTE_0> con il token reale ottenuto nei primi passaggi.
 
 ### Fase 1: Richieste di Accesso Pubbliche (Anonimo, nessun token)
 Chiunque può consultare l'elenco dei sondaggi attivi e i relativi risultati.
