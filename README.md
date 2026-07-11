@@ -76,9 +76,7 @@ http -j POST http://levidimartino.pythonanywhere.com/api/token/ username="Authen
 
 ```bash
 # 4. Creazione di un nuovo sondaggio da parte dell'Utente 1 (Prendi nota dell'ID restituito) (se vuoi personalizza la domanda o le scelte tra le virgolette)
-http -j POST http://levidimartino.pythonanywhere.com/api/polls/ \"Authorization: Bearer <INCOLLA_TOKEN_UTENTE_1>" \
-  question="Quale framework preferisci per le API?" \
-  choices:='[{"choice_text": "Django REST Framework"}, {"choice_text": "FastAPI"}, {"choice_text": "Flask"}]'
+http -j POST http://levidimartino.pythonanywhere.com/api/polls/ "Authorization: Bearer <INCOLLA_TOKEN_UTENTE_1>"  question="Quale framework preferisci per le API?" choices:='[{"choice_text": "Django REST Framework"}, {"choice_text": "FastAPI"}, {"choice_text": "Flask"}]'
 ```
 
 ### Fase 4: Voto e Restrizioni (Operazioni Protette, valide solo per autente Autenticato)
