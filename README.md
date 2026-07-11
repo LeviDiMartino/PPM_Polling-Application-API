@@ -76,7 +76,7 @@ http -j POST http://levidimartino.pythonanywhere.com/api/token/ username="Authen
 
 # 4. Creazione di un nuovo sondaggio da parte dell'Utente 1 (Prendi nota dell'ID restituito) (se vuoi personalizza la domanda o le scelte tra le virgolette)
 ```bash
-http --unsorted -j POST http://levidimartino.pythonanywhere.com/api/polls/ "Authorization: Bearer <INCOLLA_TOKEN_UTENTE_1>" question="Quale framework preferisci per le API?" choices[0][choice_text]="Django REST Framework" choices[1][choice_text]="FastAPI" choices[2][choice_text]="Flask"
+http --unsorted -j POST http://levidimartino.pythonanywhere.com/api/polls/ question="Quale framework preferisci per le API?" choices[0][choice_text]="Django REST Framework" choices[1][choice_text]="FastAPI" choices[2][choice_text]="Flask" "Authorization: Bearer <INCOLLA_TOKEN_UTENTE_1>"
 ```
 (se --unsorted da problemi rimuoverlo o scrivere "--sorted=no" al suo posto)
 
@@ -85,7 +85,7 @@ Utilizzando il token JWT all'interno dell'header Authorization, l'utente può or
 
 #5. L'Utente 1 vota per un sondaggio (es. sostituisci al campo id l'ID del sondaggio che vuoi votare e dopo l'ID della tua scelta)
 ```bash
-http POST http://levidimartino.pythonanywhere.com/api/polls/id/vote/ "Authorization: Bearer <INCOLLA_TOKEN_UTENTE_1>" choice=id
+http POST http://levidimartino.pythonanywhere.com/api/polls/id/vote/ "Authorization: Bearer <INCOLLA_TOKEN_UTENTE_1>" choice=id 
 ```
 #6. TEST UNICITÀ DEL VOTO: L'Utente 1 prova a votare di nuovo lo stesso sondaggio 
 ```bash
