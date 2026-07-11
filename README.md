@@ -73,7 +73,7 @@ Per eseguire operazioni di scrittura, l'utente deve scambiare le proprie credenz
 http -j POST http://levidimartino.pythonanywhere.com/api/token/ username="AuthenticatedUser1" password="Polls1" 
 ```
 
-# Fase 3. Creazione di un nuovo sondaggio (da parte dell'Utente 1)
+### Fase 3. Creazione di un nuovo sondaggio (da parte dell'Utente 1)
 
 ```bash
 http --unsorted -j POST http://levidimartino.pythonanywhere.com/api/polls/ question="Quale framework preferisci per le API?" choices[0][choice_text]="Django" choices[1][choice_text]="FastAPI" choices[2][choice_text]="Flask" "Authorization: Bearer <INCOLLA_TOKEN_UTENTE_1>"
